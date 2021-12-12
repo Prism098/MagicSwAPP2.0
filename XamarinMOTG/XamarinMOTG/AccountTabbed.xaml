@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinMOTG.AccountTabbed">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            
+                <StackLayout>
+                    <!--<ImageButton Source="BlankProfile.jpg" Clicked="ProfileImage_Clicked" Style="{StaticResource btnLike}"/>-->
+                    <Label>User Name</Label> 
+            
+                    <Label>Bio:</Label>
+                    <Label>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel leo nec turpis consectetur commodo ac at risus.
+                    </Label>
+
+                    <Button Text="Save"/>
+                    <Button Text="Sign out"/>
+                    <Button Text="Remove profile"/>
+                </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

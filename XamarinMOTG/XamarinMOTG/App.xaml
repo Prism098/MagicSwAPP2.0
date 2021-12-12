@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinMOTG.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color  x:Key="Pink Lavender">#E4B7E5</Color>
+            <Color  x:Key="African Violet">#B288C0</Color>
+            <Color  x:Key="Royal Purple">#7E5A9B</Color>
+            <Color  x:Key="Cyber Grape">#63458A</Color>
+            <Color  x:Key="Dark orchid">#9A48D0</Color>
+
+            <Color  x:Key="gray-900">#082032</Color>
+            <Color  x:Key="gray-800">#2C394B</Color>
+            <Color  x:Key="gray-700">#334756</Color>
+            <Color  x:Key="accent-500">#FF4C29</Color>
+
+            <Style  x:Key="HomescreenConfirm" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource Pink Lavender}"/>
+            </Style>
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

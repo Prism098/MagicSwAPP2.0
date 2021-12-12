@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinMOTG.UploadItemPage"
+             Title="Upload Card"
+              BackgroundColor="{StaticResource gray-900}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Uploading stuff here"
+                   TextColor="{StaticResource accent-500}"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" />
+
+            <!--<Label Text="New">
+                <Label.Text>
+                    <FontImageSource
+                    FontFamily="FASolid"
+                    Glyph="&#xf093;"
+                    Size="18"/>
+                </Label.Text>
+            </Label>-->
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
