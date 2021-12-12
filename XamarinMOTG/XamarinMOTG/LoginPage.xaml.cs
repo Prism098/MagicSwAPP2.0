@@ -2,6 +2,7 @@
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XamarinMOTG.Connections;
 
 namespace XamarinMOTG
 {
@@ -25,7 +26,8 @@ namespace XamarinMOTG
             }
             else
             {
-                Navigation.PushAsync(new HomePage() { BarBackgroundColor = Color.Green });
+                var users = LoginService.GetUser(usernameEntry.Text, passwordEntry.Text);
+                Navigation.PushAsync(new HomePage() { BarBackgroundColor = Color.FromHex("#2C394B") });
             }
 
         }

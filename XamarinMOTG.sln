@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinMOTG.Android", "Xama
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinMOTG.iOS", "XamarinMOTG\XamarinMOTG.iOS\XamarinMOTG.iOS.csproj", "{253E6661-7C2B-4A14-9E3E-F313A70EDF88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinMOTG", "XamarinMOTG\XamarinMOTG\XamarinMOTG.csproj", "{8ECCA5EB-5568-4809-AD7F-CF09042476D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XamarinMOTG", "XamarinMOTG\XamarinMOTG\XamarinMOTG.csproj", "{8ECCA5EB-5568-4809-AD7F-CF09042476D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
