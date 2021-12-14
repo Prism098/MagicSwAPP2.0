@@ -11,10 +11,13 @@
             <Frame Padding="24" CornerRadius="0" BackgroundColor="{StaticResource gray-800}">
                 <Label Text="MOTG Collectables" HorizontalTextAlignment="Center" TextColor="{StaticResource Off White}" FontSize="36"/>
             </Frame>
-            <Label x:Name="usernameLabel" Text="Enter a username:"/>
+            <Label x:Name="usernameLabel" Text="Enter username:"/>
             <Entry x:Name="usernameEntry" Placeholder="Username"/>
-            <Label x:Name="passwordLabel" Text="Enter a password:"/>
+            <Label x:Name="passwordLabel" Text="Enter password:"/>
             <Entry x:Name="passwordEntry" Placeholder="Password"/>
+            <Label x:Name="emailLabel" Text="enter your email"/>
+            <Entry x:Name="emailEntry" Placeholder="Enter your email"/>
+
             <Button x:Name="loginButton" Text="Login" Clicked="LoginButton_Clicked"/>
         </StackLayout>
     </ContentPage.Content>

@@ -1,8 +1,9 @@
-﻿using System;
+﻿using SQLite;
+using System;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using XamarinMOTG.Connections;
+using XamarinMOTG.Model;
 
 namespace XamarinMOTG
 {
@@ -14,7 +15,7 @@ namespace XamarinMOTG
             InitializeComponent();
         }
 
-        private void LoginButton_Clicked(object sender, EventArgs e)
+        private async void LoginButton_Clicked(object sender, EventArgs e)
         {
 
             bool isUsernameEmpty = string.IsNullOrEmpty(usernameEntry.Text);
@@ -26,8 +27,26 @@ namespace XamarinMOTG
             }
             else
             {
-                var users = LoginService.GetUser(usernameEntry.Text, passwordEntry.Text);
-                Navigation.PushAsync(new HomePage() { BarBackgroundColor = Color.FromHex("#2C394B") });
+                //base.OnAppearing();
+                SQLiteConnection sQLiteConnection = new SQLiteConnection(App.DatabaseLocation);
+                sQLiteConnection.CreateTable<User>();
+                //TableQueryObject
+                var users = sQLiteConnection.Table<User>().ToList();
+                sQLiteConnection.Close();
+
+                //User user = new User();
+                //user.Name = usernameEntry.Text;
+                //user.Password = passwordEntry.Text;
+                //user.Email = emailEntry.Text;
+
+                //SQLiteConnection Sqliteconnection = new SQLiteConnection(App.DatabaseLocation);
+                //Sqliteconnection.CreateTable<User>();
+                //int insertRows = Sqliteconnection.Insert(user);
+                //Sqliteconnection.Close();
+                //Console.WriteLine(insertRows + " testing if the function works");
+
+
+                await Navigation.PushAsync(new HomePage() { BarBackgroundColor = Color.FromHex("#2C394B") });
             }
 
         }
