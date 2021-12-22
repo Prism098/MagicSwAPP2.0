@@ -17,7 +17,7 @@
         <ListView x:Name="CardList" ItemTapped="OnCardTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Name}" />
+                    <TextCell Text="{Binding Name}" TextColor= "{StaticResource white-500}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

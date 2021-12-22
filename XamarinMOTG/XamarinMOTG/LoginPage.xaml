@@ -1,24 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XamarinMOTG.LoginPage">
+             x:Class="XamarinMOTG.LoginPage"
+             Style="{StaticResource Page}">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Login?"/>
+        <ToolbarItem Text="Register" Clicked="GoToRegister"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
         <StackLayout>
             <Frame Padding="24" CornerRadius="0" BackgroundColor="{StaticResource gray-800}">
-                <Label Text="MOTG Collectables" HorizontalTextAlignment="Center" TextColor="{StaticResource Off White}" FontSize="36"/>
+                <Label Text="MOTG Collectables" HorizontalTextAlignment="Center" Style="{StaticResource Label}" FontSize="36"/>
             </Frame>
-            <Label x:Name="usernameLabel" Text="Enter username:"/>
-            <Entry x:Name="usernameEntry" Placeholder="Username"/>
-            <Label x:Name="passwordLabel" Text="Enter password:"/>
-            <Entry x:Name="passwordEntry" Placeholder="Password"/>
-            <Label x:Name="emailLabel" Text="enter your email"/>
-            <Entry x:Name="emailEntry" Placeholder="Enter your email"/>
 
-            <Button x:Name="loginButton" Text="Login" Clicked="LoginButton_Clicked"/>
+            <StackLayout Padding="24">
+                <!--<Label x:Name="usernameLabel" Text="Enter username:"/>
+                <Label x:Name="passwordLabel" Text="Enter password:"/>
+                <Label x:Name="emailLabel" Text="enter your email"/>-->
+                <Entry x:Name="usernameEntry" Placeholder="Username" Style="{StaticResource Entry}" ReturnType="Next" ClearButtonVisibility="WhileEditing"/>
+                <Entry x:Name="passwordEntry" Placeholder="Password" Style="{StaticResource Entry}" ReturnType="Next" IsPassword="true" ClearButtonVisibility="WhileEditing"/>
+                <Entry x:Name="emailEntry" Placeholder="Email" Style="{StaticResource Entry}" ReturnType="Go" ClearButtonVisibility="WhileEditing"/>
+
+                <Button x:Name="loginButton" Text="Login" Clicked="LoginButton_Clicked"/>
+                <Button x:Name="gotoRegisterButton" Text="Register" Clicked="GoToRegister"/>
+            </StackLayout>
+
         </StackLayout>
     </ContentPage.Content>
 

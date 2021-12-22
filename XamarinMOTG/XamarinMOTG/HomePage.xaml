@@ -3,12 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinMOTG.HomePage"
             xmlns:pages="clr-namespace:XamarinMOTG" xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize">
-    <!--Pages can be added as references or inline-->
+             
+        <!--Pages can be added as references or inline-->
     <!-- REMEMBER ME FOR LATER  IconImageSource="schedule.png"-->
 
     <TabbedPage.ToolbarItems>
         <ToolbarItem Text="New" Clicked="UploadToolbarItem_Clicked">
-            <ToolbarItem.IconImageSource>
+            
+                <ToolbarItem.IconImageSource>
                 <FontImageSource
                     FontFamily="FASolid"
                     Glyph="&#xf093;"
@@ -17,9 +19,9 @@
         </ToolbarItem>
     </TabbedPage.ToolbarItems>
 
-    <pages:MarktplaatsTabbed Title="Marktplaats"></pages:MarktplaatsTabbed>
-    <pages:CollectieTabbed Title="Collectie"></pages:CollectieTabbed>
-    <pages:AccountTabbed Title="Account"></pages:AccountTabbed>
+    <pages:MarktplaatsTabbed Title="Marktplaats" Style="{StaticResource Page}"></pages:MarktplaatsTabbed>
+    <pages:CollectieTabbed Title="Collectie" Style="{StaticResource Page}"></pages:CollectieTabbed>
+    <pages:AccountTabbed Title="Account" Style="{StaticResource Page}"></pages:AccountTabbed>
 
     <!--<ContentPage Title="Tab 1">
         <Label Margin="0, 20" Text="Hello from Tab 1" Font="Bold,Large" HorizontalOptions="Center"></Label>

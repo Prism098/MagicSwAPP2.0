@@ -15,10 +15,27 @@
             <Color  x:Key="gray-800">#2C394B</Color>
             <Color  x:Key="gray-700">#334756</Color>
             <Color  x:Key="accent-500">#FF4C29</Color>
+            <Color  x:Key="white-500">#ffffff</Color>
 
-            <Style  x:Key="HomescreenConfirm" TargetType="Button">
+            <Style x:Key="HomescreenConfirm" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource Pink Lavender}"/>
             </Style>
+
+            <Style x:Key="Page" TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="{StaticResource gray-700}"/>
+            </Style>
+
+            <Style x:Key="Label" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource white-500}"/>
+            </Style>
+
+            <Style x:Key="Entry" TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="{StaticResource white-500}"/>
+                <Setter Property="TextColor" Value="{StaticResource white-500}"/>
+            </Style>
+
+
+
 
         </ResourceDictionary>
 

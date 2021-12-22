@@ -15,6 +15,13 @@ namespace XamarinMOTG
             InitializeComponent();
         }
 
+
+
+        private async void GoToRegister(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RegisterPage() { });
+        }
+
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
 
@@ -23,7 +30,8 @@ namespace XamarinMOTG
 
             if (isUsernameEmpty || isPasswordEmpty)
             {
-                usernameLabel.Text = "Enter login.";
+                await DisplayAlert("Invalid Content", "Please enter a valid username, email and password", "Okay");
+                // usernameLabel.Text = "Enter login.";
             }
             else
             {
