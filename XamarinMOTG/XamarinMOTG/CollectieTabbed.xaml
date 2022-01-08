@@ -2,13 +2,51 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinMOTG.CollectieTabbed">
-    <Grid Margin="20,35,20,20">
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Label Text="By default, a Grid contains one row and one column." />
-        </StackLayout>
 
-    </Grid>
+    <ListView x:Name="listView" 
+			  ItemTapped="OnItemTapped"
+			  ItemsSource="{Binding .}">
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout x:Name="cardcell" HorizontalOptions="FillAndExpand" Orientation="Horizontal" HeightRequest="2">
+                        <Image x:Name="icon" Source="{Binding ImageUris.Small}"></Image>
+
+                        <StackLayout HorizontalOptions="FillAndExpand" Padding="15,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
+                            <Label Text="{Binding Name}" VerticalTextAlignment="Center" FontSize="Medium" />
+                            <Label Text="{Binding Set}" VerticalTextAlignment="Center" FontSize="Micro" />
+                        </StackLayout>
+                        <Image HorizontalOptions="EndAndExpand">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="OnCellClicked"
+                                    CommandParameter="{Binding .}"
+                                    NumberOfTapsRequired="1" />
+                            </Image.GestureRecognizers>
+                            <Image.Source>
+                                <FontImageSource
+                                    FontFamily="FASolid"
+                                    Glyph="&#xf1f8;"
+                                    Size="18"/>
+                            </Image.Source>
+                        </Image>
+                        <!--
+                            <Button Text="X" BackgroundColor="Gray" HorizontalOptions="EndAndExpand" CommandParameter="{Binding .}" Clicked="OnCellClicked" />
+                        -->
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    <!-- 
+        <Grid Margin="20,35,20,20">
+            <StackLayout>
+                <Label Text="Welcome to Xamarin.Forms!"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" />
+                <Label Text="By default, a Grid contains one row and one column." />
+            </StackLayout>
+        </Grid>
+    -->
 </ContentPage>

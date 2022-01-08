@@ -10,7 +10,7 @@
     <TabbedPage.ToolbarItems>
         <ToolbarItem Text="New" Clicked="UploadToolbarItem_Clicked">
             
-                <ToolbarItem.IconImageSource>
+            <ToolbarItem.IconImageSource>
                 <FontImageSource
                     FontFamily="FASolid"
                     Glyph="&#xf093;"
