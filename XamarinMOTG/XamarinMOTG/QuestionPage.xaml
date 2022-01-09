@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinMOTG.QuestionPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name ="QuestionLabel " Text="Geef een vraag in om op te slaan"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Entry x:Name="QuestionEntry" Placeholder="Maximum 200 tokens!"/>
+            <Button x:Name="SaveButon" Text="Save" Clicked="SaveButton_Clicked"/>
+
+
+        </StackLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>

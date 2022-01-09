@@ -27,6 +27,7 @@ namespace XamarinMOTG
                 var photo = await MediaPicker.CapturePhotoAsync();
                 await LoadPhotoAsync(photo);
                 Console.WriteLine($"CapturePhotoAsync COMPLETED: {PhotoPath}");
+
             }
             catch (FeatureNotSupportedException fnsEx)
             {
