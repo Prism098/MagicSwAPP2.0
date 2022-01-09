@@ -65,21 +65,25 @@ namespace XamarinMOTG
 
                     var results = conn.Query<User>(query);
 
-                    Console.WriteLine("Found count: " + results.Count);
-
-
                     if (results.Count < 1)
                     {
                         await DisplayAlert("Error", "Email is not registered.", "Okay");
                     }
                     else
                     {
-                        // User logged in (todo, save information)
-                        await DisplayAlert("Welcome", "Welcome " + results[0].Name, "Okay");
+                        if (passwordEntry.Text == results[0].Password)
+                        {
+                            // Push navigation first so that there's instant user feedback
+                            await Navigation.PushAsync(new HomePage() { BarBackgroundColor = Color.FromHex("#2C394B") });
 
-                        await Navigation.PushAsync(new HomePage() { BarBackgroundColor = Color.FromHex("#2C394B") });
+                            // User logged in (todo, save information)
+                            await DisplayAlert("Welcome", "Welcome " + results[0].Name, "Okay");
+                        } 
+                        else
+                        {
+                            await DisplayAlert("Error", "Password is wrong", "Okay");
+                        }
                     }
-
 
                     conn.Close();
                 }
