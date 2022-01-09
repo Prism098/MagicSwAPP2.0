@@ -36,9 +36,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="QuestionPage.xaml.cs">
-      <DependentUpon>QuestionPage.xaml</DependentUpon>
-    </Compile>
     <Compile Update="EditAccount.xaml.cs">
       <DependentUpon>EditAccount.xaml</DependentUpon>
     </Compile>
@@ -55,9 +52,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="CardInformation.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="QuestionPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="CollectieTabbed.xaml">

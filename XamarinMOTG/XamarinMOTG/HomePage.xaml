@@ -22,9 +22,8 @@
     <pages:MarktplaatsTabbed Title="Advert" Style="{StaticResource Page}"></pages:MarktplaatsTabbed>
     <pages:CollectieTabbed Title="Collectie" Style="{StaticResource Page}"></pages:CollectieTabbed>
     <pages:AccountTabbed Title="Account" Style="{StaticResource Page}"></pages:AccountTabbed>
-    <pages:QuestionPage Title="Cocktials" Style="{StaticResource Page}"></pages:QuestionPage>
-    
-   
+
+
 
     <!--<ContentPage Title="Tab 1">
         <Label Margin="0, 20" Text="Hello from Tab 1" Font="Bold,Large" HorizontalOptions="Center"></Label>

@@ -11,8 +11,7 @@
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand" />
 
-            <Button Clicked="Button_Clicked">               
-            </Button>
+            <Button Text="Click here to upload pictures!" Clicked=  "Button_Clicked"/>
 
             <!--<Label Text="New">
                 <Label.Text>

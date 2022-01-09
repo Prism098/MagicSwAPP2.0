@@ -55,10 +55,10 @@ namespace XamarinMOTG
                 {
                     connection.Insert(tempUser);
                     // Tell user
-                    await DisplayAlert("Success", "Account was created", "Okay");
+                    await DisplayAlert("Success",    "Account was created", "Okay");
                     
                     // Go back a page (assumes from login)
-                    Application.Current.MainPage.Navigation.PopAsync();
+                    await Application.Current.MainPage.Navigation.PopAsync();
 
                 }
                 catch (SQLite.SQLiteException)
