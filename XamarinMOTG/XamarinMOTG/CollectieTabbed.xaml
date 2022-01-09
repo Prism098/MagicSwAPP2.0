@@ -10,7 +10,7 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <StackLayout x:Name="cardcell" HorizontalOptions="FillAndExpand" Orientation="Horizontal" HeightRequest="2">
+                    <StackLayout x:Name="cardcell" Orientation="Horizontal">
                         <Image x:Name="icon" Source="{Binding ImageUris.Small}"></Image>
 
                         <StackLayout HorizontalOptions="FillAndExpand" Padding="15,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
@@ -34,6 +34,7 @@
                         <!--
                             <Button Text="X" BackgroundColor="Gray" HorizontalOptions="EndAndExpand" CommandParameter="{Binding .}" Clicked="OnCellClicked" />
                         -->
+
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>

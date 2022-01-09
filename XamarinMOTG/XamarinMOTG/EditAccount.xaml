@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinMOTG.EditAccount"
+             BackgroundColor="{StaticResource gray-800}"
+             Title="Edit Account">
+
+    <StackLayout Padding="24" Orientation="Vertical">
+
+        <Entry x:Name="emailEntry" Placeholder="Email" Style="{StaticResource Entry}" ReturnType="Next" ClearButtonVisibility="WhileEditing"/>
+        <Entry x:Name="usernameEntry" Placeholder="Username" Style="{StaticResource Entry}" ReturnType="Next" ClearButtonVisibility="WhileEditing"/>
+        <Entry x:Name="passwordEntry" Placeholder="Password" Style="{StaticResource Entry}" ReturnType="Next" IsPassword="true" ClearButtonVisibility="WhileEditing"/>
+        <Entry x:Name="passwordConfirmEntry" Placeholder="Password (confirm)" Style="{StaticResource Entry}" ReturnType="Go" IsPassword="true" ClearButtonVisibility="WhileEditing"/>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button x:Name="clearEditsButton" Text="Clear" Clicked="ClearEdits"/>
+            <Button x:Name="revertEditsButton" Text="Revert" Clicked="RevertEdits"/>
+            <Button x:Name="saveEditsButton" Text="Save" Clicked="SaveEdits"/>
+        </StackLayout>
+        
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+            <Button x:Name="deleteAccountButton" Text="Delete" TextColor="{StaticResource red-500}" Clicked="DeleteAccount"/>
+        </StackLayout>
+    </StackLayout>
+
+    
+</ContentPage>

@@ -22,7 +22,7 @@ namespace XamarinMOTG
             await Navigation.PushAsync(new RegisterPage() { });
         }
 
-        private async void LoginButton_Clicked(object sender, EventArgs e)
+        private async void Login(object sender, EventArgs e)
         {
 
             bool isUsernameEmpty = string.IsNullOrEmpty(usernameEntry.Text);
@@ -52,7 +52,7 @@ namespace XamarinMOTG
                 //int insertRows = Sqliteconnection.Insert(user);
                 //Sqliteconnection.Close();
                 //Console.WriteLine(insertRows + " testing if the function works");
-
+                
 
                 await Navigation.PushAsync(new HomePage() { BarBackgroundColor = Color.FromHex("#2C394B") });
             }

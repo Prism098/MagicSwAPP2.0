@@ -5,19 +5,18 @@ using SQLite;
 
 namespace XamarinMOTG.Model
 {
-    public class User
+    public class Card
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
+        public string Name { get; set; }
         [MaxLength(255)]
-        public string  Name { get; set; }
 
+        public string Description { get; set; }
         [MaxLength(255)]
-        public string Email { get; set; }
 
-        [MaxLength(255)]
-        public string Password { get; set; }
+        public string Cost { get; set; }
 
     }
 }

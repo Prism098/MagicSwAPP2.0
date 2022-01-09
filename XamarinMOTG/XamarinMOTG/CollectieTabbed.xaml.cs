@@ -47,7 +47,8 @@ namespace XamarinMOTG
 
         public class CardSet
         {
-            public IList<Card> data { get; set; }
+            [JsonProperty("data")]
+            public IList<Card> Data { get; set; }
         }
 
       
@@ -72,9 +73,9 @@ namespace XamarinMOTG
                 // Testing to see if EXTRA JSON properties will break this JSON serialiser package
                 CardSet cardSet = JsonConvert.DeserializeObject<CardSet>(content);
 
-                this.BindingContext = cardSet.data;
+                this.BindingContext = cardSet.Data;
 
-                Console.WriteLine(cardSet.data[0].Name);
+                Console.WriteLine(cardSet.Data[0].Name);
             }
         }
 

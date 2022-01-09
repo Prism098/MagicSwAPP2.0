@@ -47,8 +47,9 @@ namespace XamarinMOTG
 
         private void OnCardTapped(Card card, ItemTappedEventArgs e)
         {
-            Navigation.PushAsync(new LoginPage()); 
-            Console.WriteLine(card.Name);
+            
+            Navigation.PushAsync(new CardInformation());
+            // Console.WriteLine(card.Name);
         }
     }
 }

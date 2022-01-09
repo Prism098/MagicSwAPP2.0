@@ -3,13 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinMOTG.UploadItemPage"
              Title="Upload Card"
-              BackgroundColor="{StaticResource gray-800}">
+             BackgroundColor="{StaticResource gray-800}">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Uploading stuff here"
                    TextColor="{StaticResource accent-500}"
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand" />
+
+            <Button Clicked="Button_Clicked">               
+            </Button>
 
             <!--<Label Text="New">
                 <Label.Text>

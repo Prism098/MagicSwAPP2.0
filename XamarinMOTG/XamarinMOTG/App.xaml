@@ -14,7 +14,13 @@
             <Color  x:Key="gray-900">#082032</Color>
             <Color  x:Key="gray-800">#2C394B</Color>
             <Color  x:Key="gray-700">#334756</Color>
+
+            <Color  x:Key="red-400">#F87171</Color>
+            <Color  x:Key="red-500">#EF4444</Color>
+            <Color  x:Key="red-600">#DC2626</Color>
+
             <Color  x:Key="accent-500">#FF4C29</Color>
+            
             <Color  x:Key="white-500">#ffffff</Color>
 
             <Style x:Key="HomescreenConfirm" TargetType="Button">

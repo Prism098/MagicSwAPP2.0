@@ -16,5 +16,15 @@ namespace XamarinMOTG
         {
             InitializeComponent();
         }
+
+        private async void EditAccount(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new EditAccount() { });
+        }
+
+        private async void DeleteAccount(object sender, EventArgs e)
+        {
+            await DisplayAlert("Confirm Deletion", "Please confirm deletion!", "Confirm", "Cancel");
+        }
     }
 }

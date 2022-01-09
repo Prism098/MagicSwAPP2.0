@@ -2,22 +2,25 @@
 using System.Collections.Generic;
 using System.Text;
 using SQLite;
-
+using XamarinMOTG.Model;
 namespace XamarinMOTG.Model
 {
-    public class User
+    public class Advertisement
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
         [MaxLength(255)]
-        public string  Name { get; set; }
-
+        public string Title { get; set; }
         [MaxLength(255)]
-        public string Email { get; set; }
 
+        public string Description{ get; set; }
         [MaxLength(255)]
-        public string Password { get; set; }
+
+     
+        public decimal Price { get; set; }
+
+        public bool Trade { get; set; }
 
     }
 }
