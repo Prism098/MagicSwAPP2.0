@@ -1,13 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XamarinMOTG.RegisterPage">
+             x:Class="XamarinMOTG.RegisterPage"
+             Style="{StaticResource Page}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Surprise" Clicked="OpenSurprise">
+
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                FontFamily="FASolid"
+                Glyph="&#xf1e2;"
+                Size="18"/>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <StackLayout>
-            <WebView Source="https://streamable.com/e/z1plzy" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Frame Padding="24" CornerRadius="0" BackgroundColor="{StaticResource gray-800}">
+                <Label Text="MOTG Collectables" HorizontalTextAlignment="Center" Style="{StaticResource Label}" FontSize="36"/>
+            </Frame>
+
+            <StackLayout Padding="24">
+                <Entry x:Name="nameEntry" Placeholder="Full Name" Style="{StaticResource Entry}" ReturnType="Next" ClearButtonVisibility="WhileEditing"/>
+                <Entry x:Name="usernameEntry" Placeholder="Username" Style="{StaticResource Entry}" ReturnType="Next" ClearButtonVisibility="WhileEditing"/>
+                <Entry x:Name="emailEntry" Placeholder="Email" Style="{StaticResource Entry}" ReturnType="Next" ClearButtonVisibility="WhileEditing"/>
+                <Entry x:Name="passwordEntry" Placeholder="Password" Style="{StaticResource Entry}" ReturnType="Go" IsPassword="true" ClearButtonVisibility="WhileEditing"/>
+                <Entry x:Name="passwordConfirmEntry" Placeholder="Password (confirm)" Style="{StaticResource Entry}" ReturnType="Go" IsPassword="true" ClearButtonVisibility="WhileEditing"/>
+
+                <Button x:Name="registerButton" Text="Register" Clicked="register"/>
+            </StackLayout>
+
         </StackLayout>
     </ContentPage.Content>
+
 </ContentPage>
+

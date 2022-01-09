@@ -55,10 +55,5 @@ namespace XamarinMOTG
         protected override void OnResume()
         {
         }
-        protected void OnAppearing()
-        {
-
-
-        }
     }
 }

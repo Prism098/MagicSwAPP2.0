@@ -15,6 +15,28 @@ namespace XamarinMOTG
             InitializeComponent();
         }
 
+        //protected override void OnAppearing()
+        //{ 
+        //    base.OnAppearing();
+        //}
+
+
+        private void printTempUser(object sender, EventArgs e)
+        {
+            // Make connection to data
+            SQLiteConnection connection = new SQLiteConnection(App.DatabaseLocation);
+            // Create table
+            connection.CreateTable<User>();
+            var users = connection.Table<User>().ToList();
+
+            foreach (var user in users)
+            {
+                Console.WriteLine("User Id: " + user.Id + " has email '" + user.Email + "' and has password '" + user.Password + "'");
+            }
+            Console.WriteLine("There are " + users.Count + " registered users");
+
+            connection.Close();
+        }
 
 
         private async void GoToRegister(object sender, EventArgs e)
@@ -25,40 +47,49 @@ namespace XamarinMOTG
         private async void Login(object sender, EventArgs e)
         {
 
-            bool isUsernameEmpty = string.IsNullOrEmpty(usernameEntry.Text);
+            bool isUsernameEmpty = string.IsNullOrEmpty(emailEntry.Text);
             bool isPasswordEmpty = string.IsNullOrEmpty(passwordEntry.Text);
 
             if (isUsernameEmpty || isPasswordEmpty)
             {
                 await DisplayAlert("Invalid Content", "Please enter a valid username, email and password", "Okay");
-                // usernameLabel.Text = "Enter login.";
             }
             else
             {
-                //base.OnAppearing();
-                SQLiteConnection sQLiteConnection = new SQLiteConnection(App.DatabaseLocation);
-                sQLiteConnection.CreateTable<User>();
-                //TableQueryObject
-                var users = sQLiteConnection.Table<User>().ToList();
-                sQLiteConnection.Close();
+                SQLiteConnection conn = new SQLiteConnection(App.DatabaseLocation);
 
-                //User user = new User();
-                //user.Name = usernameEntry.Text;
-                //user.Password = passwordEntry.Text;
-                //user.Email = emailEntry.Text;
+                try
+                {
+                    // Insecure technically, would need some sort of sanitisation to make secure
+                    string query = $"SELECT * FROM users WHERE email = '" + emailEntry.Text  + "';";
 
-                //SQLiteConnection Sqliteconnection = new SQLiteConnection(App.DatabaseLocation);
-                //Sqliteconnection.CreateTable<User>();
-                //int insertRows = Sqliteconnection.Insert(user);
-                //Sqliteconnection.Close();
-                //Console.WriteLine(insertRows + " testing if the function works");
-                
+                    var results = conn.Query<User>(query);
 
-                await Navigation.PushAsync(new HomePage() { BarBackgroundColor = Color.FromHex("#2C394B") });
+                    Console.WriteLine("Found count: " + results.Count);
+
+
+                    if (results.Count < 1)
+                    {
+                        await DisplayAlert("Error", "Email is not registered.", "Okay");
+                    }
+                    else
+                    {
+                        // User logged in (todo, save information)
+                        await DisplayAlert("Welcome", "Welcome " + results[0].Name, "Okay");
+
+                        await Navigation.PushAsync(new HomePage() { BarBackgroundColor = Color.FromHex("#2C394B") });
+                    }
+
+
+                    conn.Close();
+                }
+                catch (SQLite.SQLiteException)
+                {
+                    await DisplayAlert("Error", "Error logging in.", "Okay");
+                }
             }
 
         }
-
     }
 
 }

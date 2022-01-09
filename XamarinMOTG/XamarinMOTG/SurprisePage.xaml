@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinMOTG.SurprisePage"
+             Style="{StaticResource Page}">
+    <ContentPage.Content>
+        <StackLayout>
+            <WebView Source="https://streamable.com/e/dfd3m?autoplay=1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource gray-800}"/>
+            <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="U GOT RICKED :D" FontSize="Title" TextColor="White"></Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

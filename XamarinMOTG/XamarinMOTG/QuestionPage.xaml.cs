@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using SQLite;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XamarinMOTG.Data;
 using XamarinMOTG.Model;
 
 namespace XamarinMOTG
@@ -17,10 +18,11 @@ namespace XamarinMOTG
         {
             InitializeComponent();
         }
-        private async void SaveButton_Clicked(object sender, EventArgs e)
+        private void SaveButton_Clicked(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(QuestionEntry.Text))
             {
+                // Then where is it?...
                 QuestionEntry.Text = "Enter a Question!";
             }
             else
@@ -41,8 +43,22 @@ namespace XamarinMOTG
                 List<Question> QuestionList = sQLiteConnection.Table<Question>().ToList();
 
                 sQLiteConnection.Close();
-
             }
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            NextDrink();
+        }
+        public async void NextDrink()
+        {
+            CockTailsview.ItemsSource = (System.Collections.IEnumerable)await API.GetCockTailsByrandom();
+        }
+
+        private void GenerateButton_Clicked(object sender, EventArgs e)
+        {
+            NextDrink();
         }
     }
 }
+    
