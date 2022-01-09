@@ -10,24 +10,24 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <StackLayout x:Name="cardcell" Orientation="Horizontal">
-                        <Image x:Name="icon" Source="{Binding ImageUris.Small}"></Image>
+                    <StackLayout x:Name="cardcell" Orientation="Horizontal" HeightRequest="100">
+                        <Image x:Name="icon" Source="{Binding ImageUris.Small}"  Margin="2"></Image>
 
                         <StackLayout HorizontalOptions="FillAndExpand" Padding="15,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
-                            <Label Text="{Binding Name}" VerticalTextAlignment="Center" FontSize="Medium" />
-                            <Label Text="{Binding Set}" VerticalTextAlignment="Center" FontSize="Micro" />
+                            <Label Text="{Binding Name}" Style="{StaticResource Label}" VerticalTextAlignment="Center" FontSize="Medium" />
+                            <Label Text="{Binding Description}" Style="{StaticResource Label}" VerticalTextAlignment="Center" FontSize="Micro" />
                         </StackLayout>
-                        <Image HorizontalOptions="EndAndExpand">
+                        <Image HorizontalOptions="EndAndExpand" Margin="0,0,10,0">
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer
-                                    Tapped="OnCellClicked"
+                                    Tapped="OnCellShareClicked"
                                     CommandParameter="{Binding .}"
                                     NumberOfTapsRequired="1" />
                             </Image.GestureRecognizers>
                             <Image.Source>
                                 <FontImageSource
                                     FontFamily="FASolid"
-                                    Glyph="&#xf1f8;"
+                                    Glyph="&#xf1e1;"
                                     Size="18"/>
                             </Image.Source>
                         </Image>

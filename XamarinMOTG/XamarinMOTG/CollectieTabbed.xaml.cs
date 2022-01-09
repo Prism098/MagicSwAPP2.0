@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Diagnostics;
 using Xamarin.Forms.Xaml;
 using System.Net.Http;
 using Newtonsoft.Json;
+using Xamarin.Essentials;
 
 namespace XamarinMOTG
 {
@@ -20,7 +18,7 @@ namespace XamarinMOTG
         {
             InitializeComponent();
 
-            this.BindingContext = new[] { "a", "b", "c" };
+            this.BindingContext = new string[] { };
         }
 
         public class Card
@@ -30,6 +28,9 @@ namespace XamarinMOTG
 
             [JsonProperty("set")]
             public string Set { get; set; }
+
+            [JsonProperty("oracle_text")]
+            public string Description { get; set; }
 
             [JsonProperty("image_uris")]
             public CardImageUris ImageUris { get; set; }
@@ -64,6 +65,7 @@ namespace XamarinMOTG
             // Actually start MAKING the HTTP request
             HttpResponseMessage response = await client.GetAsync(uri);
 
+            // If a 200-like response
             if (response.IsSuccessStatusCode)
             {
                 Console.WriteLine("I got the HTTPS request with a 200(ish) response");
@@ -74,8 +76,6 @@ namespace XamarinMOTG
                 CardSet cardSet = JsonConvert.DeserializeObject<CardSet>(content);
 
                 this.BindingContext = cardSet.Data;
-
-                Console.WriteLine(cardSet.Data[0].Name);
             }
         }
 
@@ -84,9 +84,11 @@ namespace XamarinMOTG
             if (e == null) return; // has been set to null, do not 'process' tapped event
             Debug.WriteLine("Tapped: " + e.Item);
             ((ListView)sender).SelectedItem = null; // de-select the row
+
+            // TODO: Open a profile page for each card (ACTUALLY, open the website with a browser)
         }
 
-        async void OnCellClicked(object sender, EventArgs args)
+        async void OnCellShareClicked(object sender, EventArgs args)
         {
             var imageSender = (Xamarin.Forms.Image)sender;
             
@@ -94,18 +96,19 @@ namespace XamarinMOTG
             {
                 var gesture = (TapGestureRecognizer)imageSender.GestureRecognizers[0];
                 var data = gesture.CommandParameter;
+
+                // Could break?...
+                var tappedCard = (Card)data;
                 
-                Debug.WriteLine("clicked " + data);
-                await DisplayAlert("Clicked", data + "'s delete button was clicked", "K");
+                await Share.RequestAsync(new ShareTextRequest
+                {
+                    Title = "Shared MOTG Card",
+                    Text = "I found this MOTG card called " + tappedCard.Name + "."
+                });
             } else
             {
                 await DisplayAlert("Error", "Something unusual was clicked...", "K");
             }
-
-            // HOW DO ONE GET THE BOUNDARY THINGIES? Yeh back 2 app x3
-            // var t = b.CommandParameter;
-
-            // await ((ContentPage)((ListView)((ViewCell)((StackLayout)b.Parent).Parent).Parent).Parent).DisplayAlert("Clicked", t + " button was clicked", "OK");
         }
 
     }
