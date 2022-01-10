@@ -1,6 +1,6 @@
 ﻿using SQLite;
 using System;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XamarinMOTG.Model;
@@ -10,15 +10,60 @@ namespace XamarinMOTG
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
+        // Set speed delay for monitoring changes.
+        SensorSpeed speed = SensorSpeed.Game;
+
         public LoginPage()
         {
             InitializeComponent();
+
+            // Register for reading changes, be sure to unsubscribe when finished
+            Accelerometer.ShakeDetected += Accelerometer_ShakeDetected;
+
+            ToggleAccelerometer();
+
         }
 
-        //protected override void OnAppearing()
-        //{ 
-        //    base.OnAppearing();
-        //}
+        // TODO: Reusable - Loop through all Entries and clear them all
+        private void ClearFields()
+        {
+            emailEntry.Text = "";
+            passwordEntry.Text = "";
+        }
+
+        async void Accelerometer_ShakeDetected(object sender, EventArgs e)
+        {
+            // Process shake event
+            Console.WriteLine("Shake detected - clearing fields");
+            ClearFields();
+            await DisplayAlert("I see you baby, shaking that ass!", "Text has been cleared", "Okay"); // youtube.com/watch?v=DDjoouqRnhk (just in case)
+        }
+
+        public void ToggleAccelerometer()
+        {
+            try
+            {
+                if (Accelerometer.IsMonitoring)
+                {
+                    Accelerometer.Stop();
+                    Console.WriteLine("Accelerometer disabled");
+                }
+                else
+                {
+                    Accelerometer.Start(speed);
+                    Console.WriteLine("Accelerometer enabled");
+                }
+            }
+            catch (FeatureNotSupportedException fnsEx)
+            {
+                // Feature not supported on device
+                Console.WriteLine("Shake Not Supported - Shaking would clear fields. However this phone does not have accelerometer support");
+            }
+            catch (Exception ex)
+            {
+                // Other error has occurred.
+            }
+        }
 
 
         private void printTempUser(object sender, EventArgs e)
