@@ -18,11 +18,7 @@ namespace XamarinMOTG
         {
             InitializeComponent();
 
-            // Both of these will work!
-            //this.FindByName<ListView>("Stuff").ItemsSource = cards;
             CardList.ItemsSource = cards;
-
-            Console.WriteLine(CardList.ItemsSource.ToString());
 
             // ObservableCollection allows items to be added after ItemsSource
             // is set and the UI will react to changes
@@ -47,9 +43,7 @@ namespace XamarinMOTG
 
         private void OnCardTapped(Card card, ItemTappedEventArgs e)
         {
-            
             Navigation.PushAsync(new CardInformation());
-            // Console.WriteLine(card.Name);
         }
     }
 }

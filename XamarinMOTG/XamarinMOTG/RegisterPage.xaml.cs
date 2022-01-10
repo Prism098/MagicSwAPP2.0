@@ -35,7 +35,7 @@ namespace XamarinMOTG
             {
                 // Make connection to data
                 SQLiteConnection connection = new SQLiteConnection(App.DatabaseLocation);
-                // Create table on login page view (AKA app start)???
+                
                 var tempUser = new User();
                 tempUser.Username = usernameEntry.Text;
                 tempUser.Name = nameEntry.Text;

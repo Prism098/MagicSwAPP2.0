@@ -6,6 +6,7 @@
     <ContentPage.Content>
         <StackLayout>
             <WebView Source="https://streamable.com/e/dfd3m?autoplay=1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource gray-800}"/>
+            <!-- You're welcome -->
             <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Text="U GOT RICKED :D" FontSize="Title" TextColor="White"></Label>
         </StackLayout>
     </ContentPage.Content>

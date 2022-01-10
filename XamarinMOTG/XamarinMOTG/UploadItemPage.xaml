@@ -5,23 +5,26 @@
              Title="Upload Card"
              BackgroundColor="{StaticResource gray-800}">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Uploading stuff here"
-                   TextColor="{StaticResource accent-500}"
-                    VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="CenterAndExpand" />
-
-            <Button Text="Click here to upload pictures!" Clicked=  "Button_Clicked"/>
-
-            <!--<Label Text="New">
-                <Label.Text>
-                    <FontImageSource
-                    FontFamily="FASolid"
-                    Glyph="&#xf093;"
-                    Size="18"/>
-                </Label.Text>
-            </Label>-->
-            
-        </StackLayout>
+        <Frame CornerRadius="20" BorderColor="{StaticResource white-500}" BackgroundColor="Transparent" Margin="30">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer
+                            Tapped="Button_Clicked"
+                            NumberOfTapsRequired="1" />
+            </Frame.GestureRecognizers>
+            <StackLayout>
+                <Image HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand">
+                    <Image.Source>
+                        <FontImageSource
+                            FontFamily="FASolid"
+                            Glyph="&#xf030;"
+                            Size="50"/>
+                    </Image.Source>
+                </Image>
+                <Label Text="Tap To Capture Image"
+                       TextColor="{StaticResource white-500}"
+                        VerticalOptions="StartAndExpand" 
+                        HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+        </Frame>
     </ContentPage.Content>
 </ContentPage>

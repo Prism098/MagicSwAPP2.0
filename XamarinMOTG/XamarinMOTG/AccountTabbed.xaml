@@ -48,7 +48,7 @@
             
             <Label Grid.Row="1"
                 Grid.Column="1"
-                Text="MaxDeBurger420"
+                Text="MaxVanDen"
                 HorizontalOptions="Start"
                 VerticalOptions="Center"
                 Style="{StaticResource Label}"/>

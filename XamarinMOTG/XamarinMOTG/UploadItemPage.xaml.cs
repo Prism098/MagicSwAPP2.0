@@ -58,6 +58,10 @@ namespace XamarinMOTG
                 await stream.CopyToAsync(newStream);
             
             PhotoPath = newFile;
+
+            await DisplayAlert("Card Saved", "The card has been saved!", "Okay");
+            await Application.Current.MainPage.Navigation.PopAsync();
+
         }
     }
 }
