@@ -18,14 +18,6 @@ namespace XamarinMOTG
         {
             InitializeComponent();
 
-// HtmlWebViewSource personHtmlSource = new HtmlWebViewSource();
-  // personHtmlSource.SetBinding(HtmlWebViewSource.HtmlProperty, "HTMLDesc");
-    //  personHtmlSource.Html = @"<html><body><div style=' position: relative; padding-bottom: 56.25%; padding-top: 25px;'>
-      // <iframe src='https://www.youtube.com/watch?v=dQw4w9WgXcQ' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
-        //  </div></body></html>";
-          //  var browser = new WebView();
-            // browser.Source = personHtmlSource;
-            // Content = browser;
         }
 
         private async void OpenSurprise(object sender, EventArgs e)
@@ -37,7 +29,7 @@ namespace XamarinMOTG
         {
             if (passwordEntry.Text != passwordConfirmEntry.Text)
             {
-                await DisplayAlert("Passwords Do Not Match", "Passwords do not match. Please try again!", "Okay");
+                await DisplayAlert("Passwords Don't Match", "Passwords do not match. Please try again!", "Okay");
             } 
             else
             {
@@ -45,7 +37,6 @@ namespace XamarinMOTG
                 SQLiteConnection connection = new SQLiteConnection(App.DatabaseLocation);
                 // Create table on login page view (AKA app start)???
                 var tempUser = new User();
-                tempUser.Id = 0;
                 tempUser.Username = usernameEntry.Text;
                 tempUser.Name = nameEntry.Text;
                 tempUser.Email = emailEntry.Text;
@@ -55,7 +46,7 @@ namespace XamarinMOTG
                 {
                     connection.Insert(tempUser);
                     // Tell user
-                    await DisplayAlert("Success",    "Account was created", "Okay");
+                    await DisplayAlert("Success", "Account was created", "Okay");
                     
                     // Go back a page (assumes from login)
                     await Application.Current.MainPage.Navigation.PopAsync();

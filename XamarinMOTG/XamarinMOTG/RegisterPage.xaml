@@ -25,7 +25,7 @@
                 <Entry x:Name="nameEntry" Placeholder="Full Name" Style="{StaticResource Entry}" ReturnType="Next" ClearButtonVisibility="WhileEditing"/>
                 <Entry x:Name="usernameEntry" Placeholder="Username" Style="{StaticResource Entry}" ReturnType="Next" ClearButtonVisibility="WhileEditing"/>
                 <Entry x:Name="emailEntry" Placeholder="Email" Style="{StaticResource Entry}" ReturnType="Next" ClearButtonVisibility="WhileEditing"/>
-                <Entry x:Name="passwordEntry" Placeholder="Password" Style="{StaticResource Entry}" ReturnType="Go" IsPassword="true" ClearButtonVisibility="WhileEditing"/>
+                <Entry x:Name="passwordEntry" Placeholder="Password" Style="{StaticResource Entry}" ReturnType="Next" IsPassword="true" ClearButtonVisibility="WhileEditing"/>
                 <Entry x:Name="passwordConfirmEntry" Placeholder="Password (confirm)" Style="{StaticResource Entry}" ReturnType="Go" IsPassword="true" ClearButtonVisibility="WhileEditing"/>
 
                 <Button x:Name="registerButton" Text="Register" Clicked="register"/>

@@ -3,16 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinMOTG.MarktplaatsTabbed">
     <StackLayout>
-        <!--<ListView HeightRequest="50">
-                <ListView.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Adamant Will</x:String>
-                        <x:String>Angelic Quartermaster</x:String>
-                        <x:String>Arm the Cathars</x:String>
-                        <x:String>Anger the Nerds</x:String>
-                    </x:Array>
-                </ListView.ItemsSource>
-            </ListView>-->
 
         <ListView x:Name="CardList" ItemTapped="OnCardTapped">
             <ListView.ItemTemplate>
@@ -22,16 +12,9 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <!--<ListView x:Name="list" HeightRequest="50" ItemsSource="{Binding ListData, Source={x:Reference MarktplaatsTabbedd}}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="ListData"/>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>-->
 
         <Button x:Name="uploadButton" Text="Upload" Clicked="UploadButton_Clicked"/>
-        <Button x:Name="myItemsButton" Text="My Items" Clicked="MyItemsButton_Clicked"/>
+        <!-- Not needed anymore - <Button x:Name="myItemsButton" Text="My Items" Clicked="MyItemsButton_Clicked"/> -->
 
     </StackLayout>
 </ContentPage>
