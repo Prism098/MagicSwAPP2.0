@@ -17,17 +17,21 @@ namespace XamarinMOTG
         public CollectieTabbed()
         {
             InitializeComponent();
-
+            // Init empty string array (cards before loaded)
             this.BindingContext = new string[] { };
         }
 
         public class Card
         {
+            // The name that the API gives (could break if the API changes - extra params are ignored, thankfully)
             [JsonProperty("name")]
             public string Name { get; set; }
 
             [JsonProperty("set")]
             public string Set { get; set; }
+
+            [JsonProperty("scryfall_uri")]
+            public string URI { get; set; }
 
             [JsonProperty("oracle_text")]
             public string Description { get; set; }
@@ -35,9 +39,6 @@ namespace XamarinMOTG
             [JsonProperty("image_uris")]
             public CardImageUris ImageUris { get; set; }
 
-            // public bool Active { get; set; }
-            // public DateTime CreatedDate { get; set; }
-            // public IList<string> Roles { get; set; }
         }
 
         public class CardImageUris
@@ -79,13 +80,16 @@ namespace XamarinMOTG
             }
         }
 
-        void OnItemTapped(object sender, ItemTappedEventArgs e)
+        async void OnItemTapped(object sender, ItemTappedEventArgs e)
         {
             if (e == null) return; // has been set to null, do not 'process' tapped event
             Debug.WriteLine("Tapped: " + e.Item);
             ((ListView)sender).SelectedItem = null; // de-select the row
 
+            var tappedCard = (Card)e.Item;
+
             // TODO: Open a profile page for each card (ACTUALLY, open the website with a browser)
+            await Browser.OpenAsync(tappedCard.URI, BrowserLaunchMode.SystemPreferred);
         }
 
         async void OnCellShareClicked(object sender, EventArgs args)
@@ -103,7 +107,7 @@ namespace XamarinMOTG
                 await Share.RequestAsync(new ShareTextRequest
                 {
                     Title = "Shared MOTG Card",
-                    Text = "I found this MOTG card called " + tappedCard.Name + "."
+                    Text = "I found this MOTG card called " + tappedCard.Name + ". Learn more at: " + tappedCard.URI
                 });
             } else
             {
