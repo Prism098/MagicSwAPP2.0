@@ -23,7 +23,7 @@ namespace XamarinMOTG
 
         public class Card
         {
-            // The name that the API gives (could break if the API changes - extra params are ignored, thankfully)
+            // The name that the API gives (could break if the API changes 
             [JsonProperty("name")]
             public string Name { get; set; }
 

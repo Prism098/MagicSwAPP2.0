@@ -4,8 +4,6 @@
              x:Class="XamarinMOTG.HomePage"
             xmlns:pages="clr-namespace:XamarinMOTG"
             BarBackgroundColor="{StaticResource gray-800}">
-        <!--Pages can be added as references or inline-->
-    <!-- REMEMBER ME FOR LATER  IconImageSource="schedule.png"-->
 
     <TabbedPage.ToolbarItems>
         <ToolbarItem Text="New" Clicked="UploadToolbarItem_Clicked">
@@ -22,19 +20,5 @@
     <pages:MarktplaatsTabbed Title="Advert" Style="{StaticResource Page}"></pages:MarktplaatsTabbed>
     <pages:CollectieTabbed Title="Collectie" Style="{StaticResource Page}"></pages:CollectieTabbed>
     <pages:AccountTabbed Title="Account" Style="{StaticResource Page}"></pages:AccountTabbed>
-
-
-
-    <!--<ContentPage Title="Tab 1">
-        <Label Margin="0, 20" Text="Hello from Tab 1" Font="Bold,Large" HorizontalOptions="Center"></Label>
-    </ContentPage>
-    
-    <ContentPage Title="Tab 2">
-        <StackLayout>
-            <Label Margin="0, 20" Text="Hello from page 4" Font="Bold,Large" HorizontalOptions="Center"></Label>
-            <Switch IsToggled="true" HorizontalOptions="Center" Toggled="Switch_Toggled"/>
-            <Label Margin="0, 20" Text="see whta happens when you tap it!" Font="Bold,Large" HorizontalOptions="Center"></Label>
-        </StackLayout>
-    </ContentPage>-->
 
 </TabbedPage>
